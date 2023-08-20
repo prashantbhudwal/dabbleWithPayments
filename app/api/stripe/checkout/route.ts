@@ -22,6 +22,16 @@ export async function POST(req: NextRequest) {
     mode: "payment",
     success_url: `${origin}/success`,
     cancel_url: `${origin}/canceled`,
+    metadata: {
+      userId: "123",
+      gmail: "www.checkout@gmail.com",
+    },
+    payment_intent_data: {
+      metadata: {
+        userId: "123",
+        gmail: "www.intent@gmail.com",
+      },
+    },
   });
   return NextResponse.json(session.url);
 }
